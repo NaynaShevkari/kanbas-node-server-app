@@ -46,6 +46,8 @@ import AssignmentsRoutes from './Kanbas/Courses/Assignments/routes.js';
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
 
+console.log(`Connecting to MongoDB with connection string: ${CONNECTION_STRING}`);
+
 mongoose.connect(CONNECTION_STRING, {
 })
   .then(() => {
