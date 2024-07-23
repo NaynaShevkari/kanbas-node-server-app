@@ -46,7 +46,7 @@ import "dotenv/config";
 import session from "express-session";
 import AssignmentsRoutes from './Kanbas/Courses/Assignments/routes.js';
 
-const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
+const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING ;
 
 // console.log(`Connecting to MongoDB with connection string: ${CONNECTION_STRING}`);
 
@@ -63,8 +63,8 @@ const app = express();
 // app.use(cors());  
 app.use(
   cors({
-    credentials: true,
-    origin: process.env.NETLIFY_URL || "http://localhost:3000",
+    // credentials: true,
+    // origin: process.env.NETLIFY_URL || "http://localhost:3000",
   })
  );
 
