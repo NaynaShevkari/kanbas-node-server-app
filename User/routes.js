@@ -1,5 +1,5 @@
 import * as dao from "./dao.js";
-// let currentUser = null;
+let currentUser = null;
 export default function UserRoutes(app) {
   const createUser = async (req, res) => { 
     const user = await dao.createUser(req.body);
@@ -42,10 +42,6 @@ export default function UserRoutes(app) {
     const status = await dao.updateUser(userId, req.body);
     res.json(status);
   };
-  
-
-
-  // const signup = async (req, res) => { };
 
   const signup = async (req, res) => {
     const user = await dao.findUserByUsername(req.body.username);
@@ -67,9 +63,7 @@ export default function UserRoutes(app) {
     } else {
       res.status(401).json({ message: "Unable to login. Try again later." });
     }
-    // res.json(currentUser);
    };
-  // const signout = (req, res) => { };
 
   const signout = (req, res) => {
     req.session.destroy();
@@ -86,9 +80,6 @@ export default function UserRoutes(app) {
 
     res.json(currentUser);
   };
-
-
-
 
   app.post("/api/users", createUser);
   app.get("/api/users", findAllUsers);
